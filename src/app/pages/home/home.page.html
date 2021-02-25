@@ -1,7 +1,7 @@
 <div class="container mt-3">
   <div class="row g-3">
     <div class="col-6">
-      <h6>{{ text }}</h6>
+      <h6>Pesquisar</h6>
       <div class="input-group mt-3">
         <input type="text" class="form-control" aria-describedby="button-addon2" [formControl]="searchControl">
         <button class="btn btn-secondary" type="button" id="button-addon2" [disabled]="!searchControl.valid"
@@ -10,6 +10,22 @@
     </div>
     <div class="col-6">
       <h6>Pesquisar com autocomplete</h6>
+    </div>
+  </div>
+
+  <div class="spinner" *ngIf="loading$ | async">
+    <div class="double-bounce1"></div>
+    <div class="double-bounce2"></div>
+  </div>
+
+  <div class="row g-3 mt-3" *ngIf="!(loading$ | async) && !(error$ | async) && !!(cityWeather$ | async)">
+    <div class="col-12">
+      {{ (cityWeather$ | async).city.name}}
+    </div>
+  </div>
+  <div class="row g-3 mt-3" *ngIf="!(loading$ | async) && (error$ | async)">
+    <div class="col-12">
+      <a> Tentar novamente </a>
     </div>
   </div>
 </div>
