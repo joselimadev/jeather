@@ -20,9 +20,10 @@
 
   <div class="row g-3 mt-3" *ngIf="!(loading$ | async) && !(error$ | async) && !!(cityWeather$ | async)">
     <div class="col-12">
-      {{ (cityWeather$ | async).city.name}}
+      <jv-current-weather [cityWeather]="cityWeather$ | async"></jv-current-weather>
     </div>
   </div>
+
   <div class="row g-3 mt-3" *ngIf="!(loading$ | async) && (error$ | async)">
     <div class="col-12">
       <a> Tentar novamente </a>
