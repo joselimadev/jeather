@@ -18,9 +18,10 @@
     <div class="double-bounce2"></div>
   </div>
 
-  <div class="row g-3 mt-3" *ngIf="!(loading$ | async) && !(error$ | async) && !!(cityWeather$ | async)">
+  <div class="row g-3 mt-3" *ngIf="!(loading$ | async) && !(error$ | async) && !!cityWeather">
     <div class="col-12">
-      <jv-current-weather [cityWeather]="cityWeather$ | async"></jv-current-weather>
+      <jv-current-weather [cityWeather]="cityWeather" (toggleBookmark)="handleToogleBookmark()">
+      </jv-current-weather>
     </div>
   </div>
 
