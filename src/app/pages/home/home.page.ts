@@ -53,5 +53,9 @@ export class HomePage implements OnInit, OnDestroy {
 
   handleToogleBookmark() {
     const bookmark = new Bookmark();
+    bookmark.name = this.cityWeather.city.name;
+    bookmark.coord = this.cityWeather.city.coord;
+    bookmark.country = this.cityWeather.city.country;
+    bookmark.id = this.cityWeather.city.id;
   }
 }
